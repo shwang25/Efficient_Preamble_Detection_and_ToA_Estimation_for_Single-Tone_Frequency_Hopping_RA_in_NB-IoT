@@ -1,4 +1,4 @@
-# Efficient Preamble Detection and Time-of-Arrival Estimation for Single-Tone Frequency Hopping Random Access in NB-IoT
+# Efficient Preamble Detection and ToA Estimation for Single-Tone Frequency Hopping RA in NB-IoT
 
 This repository provides a compact Python reproduction of the paper:
 
@@ -12,59 +12,57 @@ The current repository focuses on a **reduced-scope, code-oriented reproduction*
 
 The present implementation includes:
 
-- Monte Carlo detection-probability simulation for **NPRACH Format 0 and Format 1**
-- Comparison for **NRep = 8** and **NRep = 32**
-- **Uniform random ToA** within the paper-style reduced-scope timing windows
+- Monte Carlo simulation of **correct detection probability versus SNR**
+- NPRACH **Format 0** and **Format 1**
+- **NRep = 8** and **NRep = 32**
+- **Uniform random ToA** within paper-style reduced-scope timing ranges
 - **AWGN, CFO = 0 Hz** as the primary reference case
 - **AWGN + CFO = 200 Hz** as a secondary stress case
 - Fixed-step SNR sweeps with JSON and figure outputs
 
 This repository is intended for academic study, debugging, and further development rather than full conformance-grade reproduction.
 
-## Scope and Limitations
+## Scope
 
 This is **not** a full system-level reproduction of the paper.
 
-In particular:
+The current code intentionally keeps a narrow scope:
 
-- The detector core is limited to the **minimum-combinations** method
-- The repository keeps a **reduced-scope simulation structure**
-- Correct detection requires:
-  - the detected `NInit` to match the transmitted `NInit`, and
-  - the ToA error to be within `3.646 us`
-- The `CFO = 200 Hz` case is **only an AWGN + CFO stress test**
-- Full **EPA1 / ETU1 multipath fading** is **not** modeled in the current Python implementation
+- the detector core is limited to the **minimum-combinations** method,
+- the simulation uses a **reduced-scope waveform and channel model**,
+- correct detection requires:
+  - correct `NInit`, and
+  - ToA estimation error `<= 3.646 us`,
+- the `CFO = 200 Hz` case is **only an AWGN + CFO stress test**,
+- full **EPA1 / ETU1 multipath fading** is **not** modeled in the present implementation.
 
 Minor differences from the published curves are therefore expected.
 
 ## Repository Structure
 
 ```text
-├── scripts
-│   └── run_nprach_paper_sweep.py
-├── src
-│   └── nprach_repro
-│       ├── __init__.py
-│       ├── config.py
-│       ├── detector_mincomb.py
-│       ├── hopping.py
-│       ├── nprach_info.py
-│       ├── nprach_simulation.py
-│       ├── nprach_waveform.py
-│       ├── threshold_calibration.py
-│       └── utils.py
-├── results
-│   ├── correction_pass_summary.md
-│   ├── correction_threshold_diagnostic.json
-│   ├── paper_sweep_detection_correction_pass.json
-│   ├── paper_sweep_detection_probability_awgn_cfo0_correction_pass.png
-│   └── paper_sweep_detection_probability_cfo200_correction_pass.png
-├── Efficient_Preamble_Detection_and_Time-of-Arrival_Estimation_for_Single-Tone_Frequency_Hopping_Random_Access_in_NB-IoT.pdf
-├── NPRACHDetectionExample.m
-├── hNPRACHDetect.m
-├── lteNPRACHInfo.m
-├── pyproject.toml
-└── README.md
+.
+|-- results
+|   |-- correction_pass_summary.md
+|   |-- correction_threshold_diagnostic.json
+|   |-- paper_sweep_detection_correction_pass.json
+|   |-- paper_sweep_detection_probability_awgn_cfo0_correction_pass.png
+|   `-- paper_sweep_detection_probability_cfo200_correction_pass.png
+|-- scripts
+|   `-- run_nprach_paper_sweep.py
+|-- src
+|   `-- nprach_repro
+|       |-- __init__.py
+|       |-- config.py
+|       |-- detector_mincomb.py
+|       |-- hopping.py
+|       |-- nprach_info.py
+|       |-- nprach_simulation.py
+|       |-- nprach_waveform.py
+|       |-- threshold_calibration.py
+|       `-- utils.py
+|-- pyproject.toml
+`-- README.md
 ```
 
 ### File Description
@@ -73,7 +71,7 @@ Minor differences from the published curves are therefore expected.
   Main entry point for fixed-step SNR sweeps across Format 0/1, NRep 8/32, random ToA, and CFO scenarios.
 
 - `src/nprach_repro/config.py`  
-  Core configuration dataclasses and default detector-threshold definitions.
+  Core configuration dataclasses, ToA limits, and detector-threshold definitions.
 
 - `src/nprach_repro/nprach_info.py`  
   NPRACH format/resource parameter handling and derived timing/frequency quantities.
@@ -94,13 +92,7 @@ Minor differences from the published curves are therefore expected.
   False-alarm-based empirical threshold calibration utilities.
 
 - `results/*.json`, `results/*.png`, `results/*.md`  
-  Example outputs from the current correction pass.
-
-- `*.m`  
-  MATLAB reference files retained for algorithm cross-checking.
-
-- `*.pdf`  
-  Reference papers kept in the repository for academic context.
+  Saved outputs from the current correction pass.
 
 ## Requirements
 
@@ -110,7 +102,7 @@ This project requires:
 - `numpy`
 - `matplotlib`
 
-You can install the package locally with:
+Install the package locally with:
 
 ```bash
 pip install -e .
@@ -130,7 +122,7 @@ Run the main sweep script directly:
 python scripts/run_nprach_paper_sweep.py --trials-per-snr 80 --snr-start-db -15 --snr-stop-db 5 --snr-step-db 0.5 --output-tag correction_pass
 ```
 
-This script will:
+The script will:
 
 - run the Monte Carlo detection sweep,
 - save the detection results as JSON,
@@ -149,15 +141,15 @@ If threshold calibration is desired, the same script can be run with:
 python scripts/run_nprach_paper_sweep.py --threshold-mode calibrated --calibration-trials-per-snr 300 --false-alarm-target 0.001 --output-tag calibrated_run
 ```
 
-## Current Status
+## Current Results
 
-The repository currently contains a focused correction pass that:
+The repository currently includes a focused correction pass with:
 
-- removed an extra half-subcarrier bias in waveform generation,
-- constrained the detector search window using the simulated ToA upper bound,
-- checked whether false-alarm-based threshold calibration materially changes the 99% crossing points.
+- a corrected waveform-side half-subcarrier treatment,
+- a detector search window constrained by the simulated ToA upper bound,
+- a lightweight threshold-calibration diagnostic.
 
-The detailed discussion of the current reduced-scope results is provided in:
+The supporting result files are:
 
 - `results/correction_pass_summary.md`
 - `results/correction_threshold_diagnostic.json`
@@ -165,9 +157,9 @@ The detailed discussion of the current reduced-scope results is provided in:
 ## Notes
 
 - This repository prioritizes **clarity and reproducibility** over full feature coverage.
-- The Python code is intentionally kept compact for debugging and academic inspection.
-- Numerical gaps relative to the original paper may still remain because the current implementation does not include the full channel and system model.
-- The `CFO = 200 Hz` result should not be interpreted as EPA1 or ETU1 unless an actual fading model is added.
+- The code is intentionally compact for debugging and academic inspection.
+- Numerical gaps relative to the original paper may still remain because the full channel and system model are not implemented.
+- The `CFO = 200 Hz` result must not be interpreted as EPA1 or ETU1 unless an actual fading model is added.
 
 ## Disclaimer
 
