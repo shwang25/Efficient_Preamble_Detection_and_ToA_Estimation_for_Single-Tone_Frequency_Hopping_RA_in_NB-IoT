@@ -90,4 +90,4 @@ All theoretical methods and original ideas belong to the authors of the original
 
 ## License
 
-No license file is currently included in this repository.
+This project is released under the MIT License.
