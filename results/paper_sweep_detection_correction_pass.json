@@ -1,0 +1,2208 @@
+{
+  "description": "Paper-style NPRACH sweep with Format 0/1, NRep 8/32, fixed-step SNR, and uniform random ToA.",
+  "snr_db_list": [
+    -15.0,
+    -14.5,
+    -14.0,
+    -13.5,
+    -13.0,
+    -12.5,
+    -12.0,
+    -11.5,
+    -11.0,
+    -10.5,
+    -10.0,
+    -9.5,
+    -9.0,
+    -8.5,
+    -8.0,
+    -7.5,
+    -7.0,
+    -6.5,
+    -6.0,
+    -5.5,
+    -5.0,
+    -4.5,
+    -4.0,
+    -3.5,
+    -3.0,
+    -2.5,
+    -2.0,
+    -1.5,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0
+  ],
+  "snr_start_db": -15.0,
+  "snr_stop_db": 5.0,
+  "snr_step_db": 0.5,
+  "trials_per_snr": 80,
+  "seed": 21,
+  "threshold_mode": "default",
+  "cfo_scenarios": [
+    {
+      "key": "awgn_cfo0",
+      "label": "AWGN, CFO = 0 Hz",
+      "cfo_hz": 0.0
+    },
+    {
+      "key": "cfo200",
+      "label": "CFO = 200 Hz",
+      "cfo_hz": 200.0
+    }
+  ],
+  "notes": {
+    "channel_model": "CFO-only AWGN waveform. EPA1/ETU1 multipath fading is not modeled in this sweep.",
+    "awgn_cfo": "0 Hz",
+    "epa1_etu1_cfo_proxy": "200 Hz",
+    "correct_detection": "Detected NInit must match the transmitted NInit and ToA error must be within 3.646 us.",
+    "snr_grid": "A single fixed-step SNR grid is used for every Format/NRep/CFO curve.",
+    "search_window": "The detector search window is limited by the simulated ToA upper bound for each format, instead of always using the full CP span."
+  },
+  "thresholds": {
+    "format0_nrep8": {
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "calibration": null
+    },
+    "format1_nrep8": {
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "calibration": null
+    },
+    "format0_nrep32": {
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "calibration": null
+    },
+    "format1_nrep32": {
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "calibration": null
+    }
+  },
+  "results": [
+    {
+      "scenario": {
+        "key": "awgn_cfo0",
+        "label": "AWGN, CFO = 0 Hz",
+        "cfo_hz": 0.0
+      },
+      "format": "0",
+      "nrep": 8,
+      "periodicity_ms": 80,
+      "toa_range_us": [
+        0.0,
+        66.67
+      ],
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 3,
+          "detection_probability": 0.0375
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 7,
+          "detection_probability": 0.0875
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 11,
+          "detection_probability": 0.1375
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 17,
+          "detection_probability": 0.2125
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 35,
+          "detection_probability": 0.4375
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 34,
+          "detection_probability": 0.425
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 50,
+          "detection_probability": 0.625
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 60,
+          "detection_probability": 0.75
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 74,
+          "detection_probability": 0.925
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 73,
+          "detection_probability": 0.9125
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 76,
+          "detection_probability": 0.95
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "awgn_cfo0",
+        "label": "AWGN, CFO = 0 Hz",
+        "cfo_hz": 0.0
+      },
+      "format": "1",
+      "nrep": 8,
+      "periodicity_ms": 80,
+      "toa_range_us": [
+        0.0,
+        259.0
+      ],
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 4,
+          "detection_probability": 0.05
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 5,
+          "detection_probability": 0.0625
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 9,
+          "detection_probability": 0.1125
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 8,
+          "detection_probability": 0.1
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 19,
+          "detection_probability": 0.2375
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 36,
+          "detection_probability": 0.45
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 33,
+          "detection_probability": 0.4125
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 48,
+          "detection_probability": 0.6
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 51,
+          "detection_probability": 0.6375
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 61,
+          "detection_probability": 0.7625
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 71,
+          "detection_probability": 0.8875
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 64,
+          "detection_probability": 0.8
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 71,
+          "detection_probability": 0.8875
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 69,
+          "detection_probability": 0.8625
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 69,
+          "detection_probability": 0.8625
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 73,
+          "detection_probability": 0.9125
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 74,
+          "detection_probability": 0.925
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 76,
+          "detection_probability": 0.95
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "awgn_cfo0",
+        "label": "AWGN, CFO = 0 Hz",
+        "cfo_hz": 0.0
+      },
+      "format": "0",
+      "nrep": 32,
+      "periodicity_ms": 320,
+      "toa_range_us": [
+        0.0,
+        66.67
+      ],
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 6,
+          "detection_probability": 0.075
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 11,
+          "detection_probability": 0.1375
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 19,
+          "detection_probability": 0.2375
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 30,
+          "detection_probability": 0.375
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 44,
+          "detection_probability": 0.55
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 51,
+          "detection_probability": 0.6375
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 66,
+          "detection_probability": 0.825
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 68,
+          "detection_probability": 0.85
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 76,
+          "detection_probability": 0.95
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "awgn_cfo0",
+        "label": "AWGN, CFO = 0 Hz",
+        "cfo_hz": 0.0
+      },
+      "format": "1",
+      "nrep": 32,
+      "periodicity_ms": 320,
+      "toa_range_us": [
+        0.0,
+        259.0
+      ],
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 4,
+          "detection_probability": 0.05
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 3,
+          "detection_probability": 0.0375
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 8,
+          "detection_probability": 0.1
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 16,
+          "detection_probability": 0.2
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 25,
+          "detection_probability": 0.3125
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 47,
+          "detection_probability": 0.5875
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 56,
+          "detection_probability": 0.7
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 58,
+          "detection_probability": 0.725
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 66,
+          "detection_probability": 0.825
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "cfo200",
+        "label": "CFO = 200 Hz",
+        "cfo_hz": 200.0
+      },
+      "format": "0",
+      "nrep": 8,
+      "periodicity_ms": 80,
+      "toa_range_us": [
+        0.0,
+        66.67
+      ],
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 2,
+          "detection_probability": 0.025
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 4,
+          "detection_probability": 0.05
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 3,
+          "detection_probability": 0.0375
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 10,
+          "detection_probability": 0.125
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 12,
+          "detection_probability": 0.15
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 20,
+          "detection_probability": 0.25
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 26,
+          "detection_probability": 0.325
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 42,
+          "detection_probability": 0.525
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 46,
+          "detection_probability": 0.575
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 57,
+          "detection_probability": 0.7125
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 65,
+          "detection_probability": 0.8125
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 67,
+          "detection_probability": 0.8375
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 74,
+          "detection_probability": 0.925
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "cfo200",
+        "label": "CFO = 200 Hz",
+        "cfo_hz": 200.0
+      },
+      "format": "1",
+      "nrep": 8,
+      "periodicity_ms": 80,
+      "toa_range_us": [
+        0.0,
+        259.0
+      ],
+      "threshold": 0.016,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 3,
+          "detection_probability": 0.0375
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 8,
+          "detection_probability": 0.1
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 12,
+          "detection_probability": 0.15
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 14,
+          "detection_probability": 0.175
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 23,
+          "detection_probability": 0.2875
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 25,
+          "detection_probability": 0.3125
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 47,
+          "detection_probability": 0.5875
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 55,
+          "detection_probability": 0.6875
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 58,
+          "detection_probability": 0.725
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 63,
+          "detection_probability": 0.7875
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 65,
+          "detection_probability": 0.8125
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 70,
+          "detection_probability": 0.875
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 66,
+          "detection_probability": 0.825
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 72,
+          "detection_probability": 0.9
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 75,
+          "detection_probability": 0.9375
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 76,
+          "detection_probability": 0.95
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 70,
+          "detection_probability": 0.875
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "cfo200",
+        "label": "CFO = 200 Hz",
+        "cfo_hz": 200.0
+      },
+      "format": "0",
+      "nrep": 32,
+      "periodicity_ms": 320,
+      "toa_range_us": [
+        0.0,
+        66.67
+      ],
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 2,
+          "detection_probability": 0.025
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 7,
+          "detection_probability": 0.0875
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 15,
+          "detection_probability": 0.1875
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 12,
+          "detection_probability": 0.15
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 33,
+          "detection_probability": 0.4125
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 45,
+          "detection_probability": 0.5625
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 51,
+          "detection_probability": 0.6375
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 67,
+          "detection_probability": 0.8375
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 70,
+          "detection_probability": 0.875
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 75,
+          "detection_probability": 0.9375
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 78,
+          "detection_probability": 0.975
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "key": "cfo200",
+        "label": "CFO = 200 Hz",
+        "cfo_hz": 200.0
+      },
+      "format": "1",
+      "nrep": 32,
+      "periodicity_ms": 320,
+      "toa_range_us": [
+        0.0,
+        259.0
+      ],
+      "threshold": 0.010000000000000002,
+      "threshold_source": "matlab_default",
+      "points": [
+        {
+          "snr_db": -15.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 0,
+          "detection_probability": 0.0
+        },
+        {
+          "snr_db": -14.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 1,
+          "detection_probability": 0.0125
+        },
+        {
+          "snr_db": -14.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 3,
+          "detection_probability": 0.0375
+        },
+        {
+          "snr_db": -13.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 6,
+          "detection_probability": 0.075
+        },
+        {
+          "snr_db": -13.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 7,
+          "detection_probability": 0.0875
+        },
+        {
+          "snr_db": -12.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 20,
+          "detection_probability": 0.25
+        },
+        {
+          "snr_db": -12.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 24,
+          "detection_probability": 0.3
+        },
+        {
+          "snr_db": -11.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 41,
+          "detection_probability": 0.5125
+        },
+        {
+          "snr_db": -11.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 59,
+          "detection_probability": 0.7375
+        },
+        {
+          "snr_db": -10.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 71,
+          "detection_probability": 0.8875
+        },
+        {
+          "snr_db": -10.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 67,
+          "detection_probability": 0.8375
+        },
+        {
+          "snr_db": -9.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 75,
+          "detection_probability": 0.9375
+        },
+        {
+          "snr_db": -9.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 74,
+          "detection_probability": 0.925
+        },
+        {
+          "snr_db": -8.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -8.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 79,
+          "detection_probability": 0.9875
+        },
+        {
+          "snr_db": -7.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 77,
+          "detection_probability": 0.9625
+        },
+        {
+          "snr_db": -7.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -6.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": -0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 0.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 1.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 2.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 3.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 4.5,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        },
+        {
+          "snr_db": 5.0,
+          "num_transmissions": 80,
+          "correct_detection_count": 80,
+          "detection_probability": 1.0
+        }
+      ]
+    }
+  ]
+}

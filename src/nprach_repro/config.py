@@ -47,6 +47,7 @@ class DetectorConfig:
     fft_size: int = 256
     threshold: float | None = None
     time_error_tolerance_s: float = TIME_ERROR_TOLERANCE_S
+    max_timing_offset_us: float | None = None
 
 
 @dataclass(frozen=True)
@@ -57,6 +58,7 @@ class ChannelConfig:
     num_rx_antennas: int = 2
     signal_present: bool = True
     timing_offset_us: float | None = None
+    timing_offset_range_us: tuple[float, float] | None = None
 
 
 def toa_limit_us(fmt: str) -> float:

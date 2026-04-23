@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from dataclasses import replace
+from functools import lru_cache
 
 import numpy as np
 
 from .config import NPRACHConfig, UEConfig
 
 
+@lru_cache(maxsize=None)
 def lte_prbs_bits(c_init: int, length: int) -> np.ndarray:
     """LTE gold sequence with Nc = 1600, matching ltePRBS(cinit, len)."""
     nc = 1600
@@ -22,6 +24,7 @@ def lte_prbs_bits(c_init: int, length: int) -> np.ndarray:
     return (x1[nc : nc + length] + x2[nc : nc + length]) & 1
 
 
+@lru_cache(maxsize=None)
 def function_f(cell_id: int, nra_sc: int, max_t: int) -> np.ndarray:
     t_values = np.arange(max_t + 1, dtype=int)
     prbs_indices = (10 * t_values[None, :]) + np.arange(1, 10, dtype=int)[:, None]
@@ -73,4 +76,3 @@ def wrap_to_max_scs(delta: np.ndarray, max_scs: int) -> np.ndarray:
 
 def with_ninit(cfg: NPRACHConfig, ninit: int) -> NPRACHConfig:
     return replace(cfg, ninit=ninit)
-

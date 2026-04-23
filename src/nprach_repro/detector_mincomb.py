@@ -38,7 +38,13 @@ def compute_search_window_bins(
     detector_cfg: DetectorConfig,
 ) -> int:
     tolerated_samples = int(np.ceil(detector_cfg.time_error_tolerance_s * info.sampling_rate_hz))
-    window = int(min(detector_cfg.fft_size, ((info.cp_samples + tolerated_samples) * detector_cfg.fft_size) / info.nfft))
+    max_offset_samples = info.cp_samples
+    if detector_cfg.max_timing_offset_us is not None:
+        max_offset_samples = min(
+            info.cp_samples,
+            int(np.floor(detector_cfg.max_timing_offset_us * 1e-6 * info.sampling_rate_hz)),
+        )
+    window = int(min(detector_cfg.fft_size, ((max_offset_samples + tolerated_samples) * detector_cfg.fft_size) / info.nfft))
     return max(1, min(detector_cfg.fft_size, window))
 
 

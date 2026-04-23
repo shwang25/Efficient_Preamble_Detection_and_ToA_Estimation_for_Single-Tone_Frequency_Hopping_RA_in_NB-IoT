@@ -1,0 +1,43 @@
+{
+  "description": "Lightweight AWGN threshold calibration diagnostic for the correction pass.",
+  "search_window_basis": "Per-format simulated ToA upper bound",
+  "false_alarm_target": 0.001,
+  "calibration_snr_db_list": [-12, -9, -6, -3, 0],
+  "calibration_trials_per_snr": 40,
+  "comparison_snr_db_list": [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0],
+  "comparison_trials_per_snr": 20,
+  "results": [
+    {
+      "format": "0",
+      "nrep": 8,
+      "default_threshold": 0.016,
+      "calibrated_threshold": 0.013759938119114598,
+      "default_snr99_db": -3.2,
+      "calibrated_snr99_db": -3.2
+    },
+    {
+      "format": "0",
+      "nrep": 32,
+      "default_threshold": 0.01,
+      "calibrated_threshold": 0.009569430699368359,
+      "default_snr99_db": -10.066666666666666,
+      "calibrated_snr99_db": -10.066666666666666
+    },
+    {
+      "format": "1",
+      "nrep": 8,
+      "default_threshold": 0.016,
+      "calibrated_threshold": 0.015192821335219124,
+      "default_snr99_db": -4.1,
+      "calibrated_snr99_db": -4.1
+    },
+    {
+      "format": "1",
+      "nrep": 32,
+      "default_threshold": 0.01,
+      "calibrated_threshold": 0.009853347997979638,
+      "default_snr99_db": -10.066666666666666,
+      "calibrated_snr99_db": -10.066666666666666
+    }
+  ]
+}

@@ -20,7 +20,7 @@ class GeneratedWaveform:
 
 def _tone_symbol(info: NPRACHInfo, absolute_tone_index: int) -> np.ndarray:
     n = np.arange(info.nfft, dtype=float)
-    relative_bin = absolute_tone_index - (info.nfft / 2) + 0.5
+    relative_bin = absolute_tone_index - (info.nfft / 2)
     # Match the implicit LTE-style OFDM/IFFT normalization assumed by the
     # MATLAB noise formula. Without this 1/Nfft factor, the detector's
     # per-symbol RMS normalization leaves the useful signal unchanged but
@@ -70,6 +70,21 @@ def _default_timing_offset_us(info: NPRACHInfo) -> float:
     return 0.5 * cp_us
 
 
+def _select_timing_offset_us(
+    info: NPRACHInfo,
+    channel_cfg: ChannelConfig,
+    rng: np.random.Generator,
+) -> float:
+    if channel_cfg.timing_offset_us is not None:
+        return float(channel_cfg.timing_offset_us)
+    if channel_cfg.timing_offset_range_us is not None:
+        low_us, high_us = channel_cfg.timing_offset_range_us
+        if high_us < low_us:
+            raise ValueError("timing_offset_range_us must be ordered as (low, high)")
+        return float(rng.uniform(float(low_us), float(high_us)))
+    return _default_timing_offset_us(info)
+
+
 def _apply_optional_flat_fading(
     waveform: np.ndarray,
     channel_cfg: ChannelConfig,
@@ -95,11 +110,7 @@ def simulate_received_waveform(
 ) -> GeneratedWaveform:
     if channel_cfg.signal_present:
         tx_waveform, info = generate_nprach_waveform(ue_cfg, cfg)
-        timing_offset_us = (
-            _default_timing_offset_us(info)
-            if channel_cfg.timing_offset_us is None
-            else float(channel_cfg.timing_offset_us)
-        )
+        timing_offset_us = _select_timing_offset_us(info, channel_cfg, rng)
         true_offset_samples = int(np.floor(timing_offset_us * 1e-6 * info.sampling_rate_hz))
         delayed_tx = np.concatenate([np.zeros(true_offset_samples, dtype=np.complex128), tx_waveform])
         rx_waveform = _apply_optional_flat_fading(delayed_tx, channel_cfg, rng)
