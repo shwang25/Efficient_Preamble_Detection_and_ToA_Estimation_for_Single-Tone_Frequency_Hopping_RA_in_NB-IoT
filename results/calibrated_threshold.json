@@ -1,0 +1,36 @@
+{
+  "detector": "minimum_combinations",
+  "metric_name": "peak_metric",
+  "metric_normalized": true,
+  "format": "0",
+  "nrep": 8,
+  "num_subcarriers": 48,
+  "num_rx_antennas": 2,
+  "channel_profile": "awgn",
+  "cfo_hz": 200.0,
+  "snr_db_list": [
+    -5.3,
+    -2.3,
+    0.7,
+    3.7,
+    6.7,
+    9.7
+  ],
+  "target_false_alarm_probability": 0.001,
+  "target_percentile": 0.999,
+  "calibration_trials_per_snr": 1000,
+  "total_calibration_trials": 6000,
+  "seed": 11,
+  "calibrated_threshold": 0.015127526816207215,
+  "empirical_false_alarm_probability": 0.001,
+  "matlab_default_threshold": 0.016,
+  "peak_metric_quantiles": {
+    "p50": 0.012029792455419571,
+    "p90": 0.01302911459100495,
+    "p95": 0.013370462029978792,
+    "p99": 0.014041784227168957,
+    "p99_9": 0.015114751939151114
+  },
+  "raw_peak_metrics_path": null,
+  "cdf_plot_path": "D:\\reproduce_paper_Efficient Preamble Detection and Time-of-Arrival\\results\\threshold_cdf.png"
+}
